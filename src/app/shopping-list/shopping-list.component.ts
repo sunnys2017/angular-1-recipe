@@ -22,9 +22,10 @@ export class ShoppingListComponent implements OnInit {
     );
   }
 
-/*
-  onIngredientAdded(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
+  onEditItem(index: number) {
+    //add this index into shopping item component.
+    //making use subject of service to check the item in the shoppinglist
+    this.shoppingListService.startedEditing.next(index);
   }
-*/
+
 }
