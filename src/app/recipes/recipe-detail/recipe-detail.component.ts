@@ -38,4 +38,10 @@ export class RecipeDetailComponent implements OnInit {
     //this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route}); //this works too.
   }
 
+  onDeleteRecipe() {
+    this.recipesService.deleteRecipe(this.id);
+    //if we do not navigate away, recipe detail still show even recipe deleted.
+    this.router.navigate(['/recipes']);
+  }
+
 }
