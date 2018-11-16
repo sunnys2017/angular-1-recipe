@@ -5,8 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipesService } from './recipes/recipes.service';
@@ -17,17 +15,18 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { RecipesModule } from './recipes/recipes.module';
 import { SharedModule } from './shared/shared.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    HomeComponent
   ],
-  imports: [
+  imports: [ //any modules inside app module is eager loading.
   /*brower module contains all that common module has, and more for launching
     the app that only needed for app module. so we use browser module here,
     but in feature modules, we use common module.
@@ -35,9 +34,10 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule, 
     FormsModule,
     HttpModule,
-    RecipesModule, //this recipeM needs to be prior to appRouting module.
+    //RecipesModule, //this recipeM needs to be prior to appRouting module.
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    ShoppingListModule
   ],
   providers: [
     ShoppingListService,
